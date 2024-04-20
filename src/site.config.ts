@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
 	author: "Khaled SANNY",
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
-	title: "Bienvenue sur mon portfolio 😎!",
+	title: "Khaled SANNY",
 	// Meta property used as the default description meta property
 	description: "Mon espace personele sur le web.",
 	// HTML lang property, found in src/layouts/Base.astro L:18
@@ -30,13 +30,17 @@ export const siteConfig: SiteConfig = {
 // Used to generate links in both the Header & Footer.
 export const menuLinks: Array<{ title: string; path: string }> = [
 	{
-		title: "Home",
+		title: "Accueil",
 		path: "/",
 	},
 	{
-		title: "About",
-		path: "/about/",
+		title: "Talks",
+		path: "/talks/",
 	},
+	// {
+	// 	title: "A propos",
+	// 	path: "/about/",
+	// },
 	{
 		title: "Blog",
 		path: "/posts/",

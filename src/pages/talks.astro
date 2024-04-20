@@ -1,0 +1,49 @@
+---
+// import aboutImg from "@/assets/about-astro.png";
+import FormattedDate from "@/components/FormattedDate.astro";
+import PageLayout from "@/layouts/Base.astro";
+// import { Image } from "astro:assets";
+
+const meta = {
+	description: "Les présentations que j'ai eu faire",
+	title: "Talks",
+};
+
+const talks = [
+	{
+		title: "AstroJS: An all in one framework",
+		img: "/talks/astrojs-all-in-one-framework.jpg",
+		description:
+			"Découvrez AstroJS, un framework de développement web moderne et innovant qui permet aux développeurs de créer des sites web rapides, légers et optimiser pour le SEO.",
+		pubDate: new Date("March 02 2024"),
+		videoLink: "https://www.youtube.com/watch?v=Y-_FK-yf4zc&pp=ygUHanNiZW5pbg%3D%3D",
+	},
+];
+---
+
+<PageLayout meta={meta}>
+	<div class='space-y-6'>
+		<h1 class='title'>Talks</h1>
+		<div class='talks-list'>
+			{
+				talks.map((talk) => (
+					<div class='talk'>
+						<a class='youtube-video' href={talk.videoLink} target='_blank'>
+							<div class='youtube-play'>
+								<div class='youtube-play-btn' />
+							</div>
+							<img src={talk.img} alt={talk.title} class='talk-img' />
+						</a>
+						<div class='talk-body flex flex-col gap-2'>
+							<h3 class='text-accent'>{talk.title}</h3>
+							<em>
+								<FormattedDate date={talk.pubDate} />
+							</em>
+							<p>{talk.description}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</PageLayout>

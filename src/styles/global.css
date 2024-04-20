@@ -3,6 +3,27 @@
 @tailwind utilities;
 
 @layer base {
+	@font-face {
+		font-family: "Montserrat";
+		src: url("/montserrat-regular.ttf") format("ttf");
+		/* font-weight: 700; */
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: "Fuggles";
+		src: url("/Fuggles-Regular.ttf") format("ttf");
+		/* font-weight: 700; */
+		/* font-style: normal;
+		font-display: swap; */
+	}
+	.font-montserrat {
+		font-family: "Montserrat", sans-serif;
+	}
+	.font-handwritten {
+		font-family: "Fuggles", cursive;
+	}
+
 	:root,
 	:root[data-theme="light"] {
 		color-scheme: light;
@@ -10,19 +31,24 @@
 		--theme-bg: 0deg 0% 98%;
 		--theme-link: 172deg 18% 41%;
 		--theme-text: 203deg 11% 15%;
-		--theme-accent: 351deg 66% 48%;
 		--theme-accent-2: 0deg 0% 7%;
-		--theme-quote: 351deg 66% 48%;
+		--theme-accent: 49 84% 41%;
+		--theme-quote: 49 84% 41%;
+		/* --theme-accent: 351deg 66% 48%;
+		--theme-quote: 351deg 66% 48%; */
 	}
 
 	:root[data-theme="dark"] {
 		color-scheme: dark;
-		--theme-bg: 210deg 6% 12%;
+		/* --theme-bg: 210deg 6% 12%; */
+		--theme-bg: 180 2% 9%;
 		--theme-link: 330deg 49% 67%;
 		--theme-text: 220deg 3% 79%;
-		--theme-accent: 159deg 64% 45%;
 		--theme-accent-2: 0deg 0% 93%;
-		--theme-quote: 102deg 100% 86%;
+		--theme-accent: 49 86% 59%;
+		--theme-quote: 49 86% 59%;
+		/* --theme-accent: 159deg 64% 45%;
+		--theme-quote: 102deg 100% 86%; */
 	}
 
 	html {
@@ -30,6 +56,82 @@
 	}
 
 	body {
-		@apply mx-auto flex min-h-screen max-w-3xl flex-col bg-bgColor px-8 pt-16 font-mono text-sm font-normal text-textColor antialiased;
+		@apply mx-auto flex min-h-screen max-w-5xl flex-col bg-bgColor px-8 pb-16 font-mono font-normal text-textColor antialiased;
+	}
+
+	.youtube-video {
+		display: block;
+		position: relative;
+	}
+	.youtube-play {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.youtube-play:hover .youtube-play-btn {
+		transform: rotate(90deg) scale(1.2);
+	}
+	.youtube-play-btn {
+		width: 50px;
+		transition: all 0.2s;
+		height: 50px;
+		@apply bg-accent;
+		clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+		transform: rotate(90deg);
+	}
+	.talks-list {
+		display: grid;
+		/* flex-wrap: nowrap; */
+		/* flex-direction: column; */
+		gap: 3em;
+	}
+	.talk {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		flex-direction: column;
+		gap: 0.5em 2em;
+	}
+	.talk-img {
+		aspect-ratio: 16/9;
+		object-fit: cover;
+		max-width: 300px;
+		border-radius: 0.3rem;
+	}
+	.talk-body {
+		/* padding: 0 2em;  */
+		max-width: 400px;
+	}
+	.talk-body h3 {
+		font-size: 20px;
+	}
+	.talk-body p {
+		font-size: 14px;
+		opacity: 0.8;
+	}
+	@media (min-width: 600px) {
+		.talk-body {
+			max-width: 400px;
+		}
+		.talk-body h3 {
+			/* color: red; */
+		}
+	}
+	@media (min-width: 800px) {
+		.talk {
+			flex-direction: row;
+			align-items: start;
+			text-align: left;
+		}
+		.talks-list {
+			flex-direction: row;
+		}
+		.talk-body {
+			max-width: max-content;
+		}
 	}
 }
